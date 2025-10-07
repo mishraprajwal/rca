@@ -1,0 +1,9 @@
+Hierarchical RCA System Evaluation Report
+==================================================
+
+Overall Hierarchical Accuracy: 0.0000
+Overall Precision: 0.0000
+Overall Recall: 0.0000
+Overall F1-Score: 0.0000
+
+Per-Level Metrics:

@@ -1,0 +1,70 @@
+{
+  "levels": ["Level_1", "Level_2", "Level_3"],
+  "taxonomy": {
+    "Hardware": {
+      "description": "Hardware-related issues",
+      "subcategories": {
+        "Server": {
+          "description": "Server hardware problems",
+          "subcategories": {
+            "CPU": {"description": "CPU failures or issues"},
+            "Memory": {"description": "RAM or memory problems"},
+            "Storage": {"description": "Disk or storage failures"},
+            "Network Card": {"description": "Network interface issues"}
+          }
+        },
+        "Network": {
+          "description": "Network infrastructure issues",
+          "subcategories": {
+            "Router": {"description": "Router failures"},
+            "Switch": {"description": "Switch problems"},
+            "Cable": {"description": "Cable or connectivity issues"},
+            "Firewall": {"description": "Firewall configuration or failures"}
+          }
+        }
+      }
+    },
+    "Software": {
+      "description": "Software-related issues",
+      "subcategories": {
+        "Application": {
+          "description": "Application software problems",
+          "subcategories": {
+            "Database": {"description": "Database connection or query issues"},
+            "Web Server": {"description": "Web server errors"},
+            "API": {"description": "API failures or timeouts"},
+            "Authentication": {"description": "Login or auth problems"}
+          }
+        },
+        "Operating System": {
+          "description": "OS-level issues",
+          "subcategories": {
+            "Updates": {"description": "Failed system updates"},
+            "Permissions": {"description": "File or access permission issues"},
+            "Services": {"description": "System service failures"},
+            "Configuration": {"description": "System configuration errors"}
+          }
+        }
+      }
+    },
+    "Human Error": {
+      "description": "Issues caused by human mistakes",
+      "subcategories": {
+        "Configuration": {
+          "description": "Incorrect configuration by operators",
+          "subcategories": {
+            "Misconfiguration": {"description": "Wrong parameter settings"},
+            "Missing Setup": {"description": "Incomplete setup or installation"}
+          }
+        },
+        "Operation": {
+          "description": "Operational mistakes",
+          "subcategories": {
+            "Data Entry": {"description": "Incorrect data input"},
+            "Command Error": {"description": "Wrong command execution"}
+          }
+        }
+      }
+    }
+  }
+}
