@@ -1,6 +1,9 @@
+import logging
 import pandas as pd
 from typing import List, Dict, Any
 import os
+
+logger = logging.getLogger(__name__)
 
 class DataLoader:
     """Class for loading and managing incident ticket data."""
@@ -24,7 +27,7 @@ class DataLoader:
             raise FileNotFoundError(f"Data file {filepath} not found")
 
         df = pd.read_csv(filepath)
-        print(f"Loaded {len(df)} incident tickets from {filename}")
+        logger.info("Loaded %d incident tickets from %s", len(df), filename)
         return df
 
     def save_processed_data(self, df: pd.DataFrame, filename: str) -> None:
@@ -37,7 +40,7 @@ class DataLoader:
         os.makedirs(self.processed_dir, exist_ok=True)
         filepath = os.path.join(self.processed_dir, filename)
         df.to_csv(filepath, index=False)
-        print(f"Saved processed data to {filepath}")
+        logger.info("Saved processed data to %s", filepath)
 
     def get_data_info(self, df: pd.DataFrame) -> Dict[str, Any]:
         """Get basic information about the dataset.

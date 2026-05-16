@@ -1,7 +1,10 @@
+import logging
 from typing import Dict, List, Set, Tuple, Any
 import json
 import os
 from collections import defaultdict
+
+logger = logging.getLogger(__name__)
 
 class TaxonomyManager:
     """Class for managing hierarchical taxonomy structure."""
@@ -28,9 +31,9 @@ class TaxonomyManager:
             self.taxonomy = data.get('taxonomy', {})
             self.levels = data.get('levels', [])
             self._build_reverse_taxonomy()
-            print(f"Loaded taxonomy with {len(self.levels)} levels")
+            logger.info("Loaded taxonomy with %d levels", len(self.levels))
         else:
-            print(f"Taxonomy file {filepath} not found. Using empty taxonomy.")
+            logger.warning("Taxonomy file %s not found. Using empty taxonomy.", filepath)
 
     def save_taxonomy(self, filepath: str) -> None:
         """Save taxonomy to a JSON file.
@@ -46,7 +49,7 @@ class TaxonomyManager:
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
 
-        print(f"Saved taxonomy to {filepath}")
+        logger.info("Saved taxonomy to %s", filepath)
 
     def add_category(self, path: List[str], description: str = "") -> None:
         """Add a category to the taxonomy.

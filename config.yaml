@@ -1,0 +1,26 @@
+# Hierarchical RCA System Configuration
+
+model:
+  type: tfidf_lr                # Model backend: 'tfidf_lr' or 'transformer'
+  tfidf_max_features: 5000      # Max vocabulary size for TF-IDF
+  tfidf_ngram_range: [1, 2]     # N-gram range for TF-IDF features
+  transformer_model: bert-base-uncased  # HuggingFace model name for transformer backend
+
+data:
+  train_file: incidents.csv     # Training data filename (relative to data/raw/)
+  test_file: incidents_test.csv # Test data filename (relative to data/raw/)
+  taxonomy_file: taxonomy.json  # Taxonomy definition (relative to data/)
+  data_dir: data/               # Root data directory
+
+training:
+  test_size: 0.2                # Fraction of data held out for validation
+  random_state: 42              # Reproducibility seed
+  model_path: models/           # Directory to save trained models
+  max_iter: 1000                # Max iterations for logistic regression
+
+evaluation:
+  output_dir: evaluation_results/  # Directory for evaluation reports
+
+logging:
+  level: INFO                   # Log level: DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
